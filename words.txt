@@ -1,0 +1,5 @@
+ "halloween"
+ "pumpkin"
+ "scary"
+ "spooky"
+ "boo"

@@ -1,0 +1,40 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<input type="file" id="file1">
+<button id="saveBtn">SAVE DATA</button>
+<script type='text/javascript'>
+
+
+
+  results = [];
+  inputs = [document.getElementById('file1')];
+
+  function readFile() {
+    for (var i = 0; i < inputs.length; i++) {
+
+      if (inputs[i].files && inputs[i].files[0]) {
+
+        var read = new FileReader();
+
+        read.onload = function (event) {
+          results[i] = event.target.result; //array where I would like to store results
+          console.log(results[i]);
+        };
+
+        read.readAsArrayBuffer(inputs[0].files[0]);
+
+      }
+  }
+
+  }
+  //here I would like to write down all results
+  var btn = document.getElementById('saveBtn');
+  btn.onclick = function() {
+    readFile();
+  }
+</script>
+</body>
+</html>
