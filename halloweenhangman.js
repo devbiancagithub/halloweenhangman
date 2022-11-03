@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
+function playGame() {
 
-<script>
-
-  //beginning of game loop
+  //starts game loop
   do {
     alert("Welcome to Halloween Hangman!");
 
@@ -15,7 +12,7 @@
       "spooky",
       "boo"
     ];
-    //creates array of halloween words
+    //creates list of halloween words
 
     var secretWord = halloweenWords[Math.floor(Math.random() * halloweenWords.length)];
     //chooses array word and stores it to secretWord
@@ -29,7 +26,6 @@
     //adds new element to each letter of answer array
 
     /* game loop and user input */
-
     var remainingLetters = secretWord.length;
     //sets the # of remaining letters in secretWord
     while (remainingLetters > 0) {
@@ -38,11 +34,8 @@
       //shows user guessing progress
       //join() used to join the elements of answerArray into a string
 
-      var userInput = prompt("Please, enter a valid, lowercase, single LETTER:");
+      var userInput = prompt("Please, enter a valid, lowercase, single letter:");
 
-      if (userInput === null) {
-        break;
-      }
       if (userInput.length !== 1) {
         alert("Please, SINGLE letter!");
       } else {
@@ -51,7 +44,7 @@
             answerArray[m] = userInput;
             remainingLetters--;
           }
-          //adds guessed letter input to secretWord
+          //adds guessed letter input to answerArray
         }
       }
     }
@@ -60,18 +53,16 @@
     alert("This is your progress so far: " + answerArray.join(" "));
     alert("Congratulations! You guessed the correct Halloween word! It was: " + secretWord);
 
-    var playAgain= prompt("Would you like to play again? Please, enter yes or no.");
+
+    /* game loop until user decides to stop */
+    var playAgain = prompt("Would you like to play again? Please, enter yes or no.");
     // prompt user to play again
 
-    if(playAgain === "yes")
+    if (playAgain === "yes")
       playAgain = true;
-    else if(playAgain === "no")
+    else if (playAgain === "no")
       playAgain = false;
 
-  } while(playAgain !== false )
-  //end of game loop
-  //loops game until user decides to stop
-
-</script>
-</body>
-</html>
+  } while (playAgain !== false)
+//end of game loop
+}
