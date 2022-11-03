@@ -2,7 +2,6 @@ function playGame() {
 
   //starts game loop
   do {
-    alert("Welcome to Halloween Hangman!");
 
     /* random word setup*/
     var halloweenWords = [
